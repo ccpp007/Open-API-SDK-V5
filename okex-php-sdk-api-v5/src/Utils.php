@@ -133,13 +133,13 @@ class Utils
 
         return $headers;
     }
-
-    // 获取IOS格式时间戳
-    public static function getTimestamp()
-    {
-        ini_set("date.timezone","UTC");
-        return date("Y-m-d\TH:i:s"). substr((string)microtime(), 1, 4) . 'Z';
-    }
+    
+         //2022.8.5 修改支持高版本php，之前低版本不支持
+        // 获取IOS格式时间戳
+        public static function getTimestamp()
+        {
+            return gmdate ( 'Y-m-d\TH:i:s\Z' );
+        }
 
     // IOS格式时间戳转毫秒级时间
     function dateToTimestamp($isoTime)
